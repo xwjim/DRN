@@ -55,10 +55,12 @@ class DRN_GloVe(nn.Module):
 
         if self.config.use_context:
             self.context_atten = MultiHeadAttention(1,self.gcn_dim,self.gcn_dim,self.gcn_dim,dropout=0.4)
-            self.task_infer = Task_Decompose(config)
             class_size = self.bank_size * 2 + 2*self.gcn_dim
             if self.config.use_dis_embed:
                 class_size = class_size + 40
+        else:
+            class_size = self.bank_size * 2 + 40
+        self.task_infer = Task_Decompose(config)
 
         self.predict = nn.Sequential(
             nn.Linear(class_size , self.bank_size * 2),  #
@@ -217,10 +219,12 @@ class DRN_BERT(nn.Module):
 
         if self.config.use_context:
             self.context_atten = MultiHeadAttention(1,self.gcn_dim,self.gcn_dim,self.gcn_dim,dropout=0.4)
-            self.task_infer = Task_Decompose(config)
             class_size = self.bank_size * 2 + 2*self.gcn_dim
             if self.config.use_dis_embed:
-                class_size = class_size + 20
+                class_size = class_size + 40
+        else:
+            class_size = self.bank_size * 2 + 40
+        self.task_infer = Task_Decompose(config)
 
         self.predict = nn.Sequential(
             nn.Linear(class_size, self.bank_size * 2),
