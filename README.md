@@ -1,5 +1,5 @@
 # Discriminative Reasoning for Document-level Relation Extraction
-PyTorch implementation for ACL 2021 Findings paper: [Discriminative Reasoning for Document-level Relation Extraction](https://arxiv.org/abs/2106.01562)
+PyTorch implementation for ACL-IJCNLP 2021 Findings paper: [Discriminative Reasoning for Document-level Relation Extraction](https://arxiv.org/abs/2106.01562)
 
 > Document-level relation extraction (DocRE) models generally use graph networks to implicitly model the reasoning skill (i.e., pattern recognition, logical reasoning, coreference reasoning, etc.) related to the relation between one entity pair in a document. In this paper, we propose a novel discriminative reasoning framework to explicitly model the paths of these reasoning skills between each entity pair in this document. Thus, a discriminative reasoning network is designed to estimate the relation probability distribution of different reasoning paths based on the constructed graph and vectorized document contexts for each entity pair, thereby recognizing their relation. Experimental results show that our method outperforms the previous state-of-the-art performance on the large-scale DocRE dataset.
 
@@ -51,6 +51,8 @@ DRN/
 - Put `train_annotated.json`, `dev.json`, `test.json`, `word2id.json`, `ner2id.json`, `rel2id.json`, `vec.npy` into the directory `data/docred/`
 
 - If you want to use other datasets, please first process them to fit the same format as DocRED.
+
+- We randomly sampled 72 documents form the dev set which contain 916 relation instances, and we annotated the reasoning type. The annotated reasoning type data file is in the `data/docred/reason_type.txt`. The data is formated as `serial_document_id serial_instance_id document_id head_entity_id tail_entity reasoning_type`. Reaoning type 1,2,3 is denoted as intra-sentence reasoning, logical reasoning and coreference reasoning separately.
 
 ### 3.2. Pre-trained Language Models
 The package *transformers* would take some time to download the pretrained model for the first time.
