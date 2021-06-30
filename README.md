@@ -52,7 +52,7 @@ DRN/
 
 - If you want to use other datasets, please first process them to fit the same format as DocRED.
 
-- We randomly sampled 72 documents form the dev set which contain 916 relation instances, and we annotated the reasoning type. The annotated reasoning type data file is in the `data/docred/reason_type.txt`. The data is formated as `serial_document_id serial_instance_id document_id head_entity_id tail_entity reasoning_type`. Reaoning type 1,2,3 is denoted as intra-sentence reasoning, logical reasoning and coreference reasoning separately.
+- We randomly sampled 72 documents form the dev set which contain 916 relation instances, and we annotated the reasoning type. The annotated reasoning type data file is in the `data/docred/reason_type.txt`. The data is formated as `serial_document_id serial_instance_id document_id head_entity_id tail_entity_id reasoning_type`. Reaoning type 1,2,3 is denoted as intra-sentence reasoning, logical reasoning and coreference reasoning separately.
 
 ### 3.2. Pre-trained Language Models
 The package *transformers* would take some time to download the pretrained model for the first time.
